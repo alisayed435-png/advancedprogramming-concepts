@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'de.thro.inf.prg3'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.apache.commons:commons-lang3:$commons_lang3_version")
+    implementation("org.apache.logging.log4j:log4j-api:${log4j2Version}")
+    implementation("org.apache.logging.log4j:log4j-core:${log4j2Version}")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+}

@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'thro.fpk'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.4'
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+    testImplementation platform('org.junit:junit-bom:5.14.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass = 'thro.fpk.WeatherService'
+}
